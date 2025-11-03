@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const ProfilePage = () => {
   const { user, updateUser } = useAuth();
@@ -20,7 +21,7 @@ const ProfilePage = () => {
   const handleSave = () => {
     if (!isAdmin) return;
     updateUser({ email, role }); // update context + localStorage
-    alert(`Profile updated: ${email}, ${role}`);
+    toast.success(`Profile updated successfully.`);
   };
 
   return (

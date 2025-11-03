@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 export type User = {
   id: number;
@@ -58,6 +59,8 @@ const Users = () => {
   const handleDelete = (id: number) => {
     const updatedUsers = users.filter((user) => user.id !== id);
     setUsers(updatedUsers);
+
+    toast.success("User removed successfully.");
   };
 
   return (

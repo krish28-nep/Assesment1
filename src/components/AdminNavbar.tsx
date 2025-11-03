@@ -47,7 +47,7 @@ const AdminNavbar = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
                         <div className="absolute bg-neutral-50 top-12 right-0 bg-neutral-light border border-neutral-dark rounded-lg shadow-md py-1 min-w-[150px]">
                             <button
                                 onClick={logout}
-                                className="block w-full px-4 py-2 text-left hover:bg-neutral transition-all"
+                                className="block w-full cursor-pointer px-4 py-2 text-left hover:bg-neutral transition-all"
                             >
                                 Logout
                             </button>

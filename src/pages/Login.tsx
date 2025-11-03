@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -10,12 +11,17 @@ const Login: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (login(email, password)) navigate("/dashboard");
-    else alert("Invalid credentials");
+    if (login(email, password)) {
+      toast.success("Login successful. Redirecting…");
+      navigate("/dashboard");
+    } else {
+      toast.error("Invalid credentials. Please try again.");
+    }
   };
 
   return (
-      <div className="max-w-md w-full bg-(--bg-color) shadow-md rounded-xl p-8 mx-auto my-14">
+    <div className="min-h-screen flex items-center justify-center bg-(--bg-color)">
+      <div className="max-w-md w-full bg-(--bg-color) shadow-md rounded-xl p-8">
         <h2 className="text-2xl font-semibold mb-6 text-(--text-color) text-center">
           Login To Continue
         </h2>
@@ -34,7 +40,7 @@ const Login: React.FC = () => {
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+            className="px-4 py-3 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-(--color-primary)"
             required
           />
           <button type="submit" className="btn-primary mt-4">
@@ -49,6 +55,7 @@ const Login: React.FC = () => {
           </span>
         </p>
       </div>
+    </div>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, type ReactNode } from "react";
+import toast from "react-hot-toast";
 
 type UserRole = "ADMIN" | "VIEWER";
 
@@ -52,12 +53,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const logout = () => {
+    toast.success("logout successful")
     setUser(null);
     localStorage.removeItem("auth");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout,updateUser }}>
+    <AuthContext.Provider value={{ user, login, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

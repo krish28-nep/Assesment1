@@ -17,8 +17,8 @@ const AppRouter = () => (
 
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
       </Route>
+      <Route path="/login" element={<Login />} />
 
       <Route element={<ProtectedRoute><PrivateLayout /></ProtectedRoute>}>
         <Route path="/dashboard" element={<Dashboard />} />
