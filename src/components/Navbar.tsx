@@ -28,7 +28,7 @@ const Navbar = () => {
   }, [mobileMenuOpen]);
 
   return (
-    <nav className="flex justify-between items-center py-5 px-6 lg:px-10 bg-white shadow-md relative">
+    <nav className="flex justify-between items-center py-5 px-6 lg:px-10 bg-white relative">
       <span className="font-semibold text-3xl leading-[100%] custom-drop-shadow">
         <span className="text-(--color-primary) font-bold">Awww</span>
         <span>some</span>
